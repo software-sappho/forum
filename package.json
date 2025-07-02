@@ -1,0 +1,24 @@
+{
+  "name": "forum",
+  "version": "1.0.0",
+  "description": "A web-based forum application built with Go and styled using Tailwind CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/tailwindcss -i static/css/input.css -o static/css/output.css",
+    "watch": "./node_modules/.bin/tailwindcss -i static/css/input.css -o static/css/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://platform.zone01.gr/git/icelilog/forum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.8",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8"
+  }
+}

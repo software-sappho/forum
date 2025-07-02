@@ -1,0 +1,158 @@
+{
+  "users": [
+    {
+      "ID": 1,
+      "username": "test",
+      "email": "test@test.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 2,
+      "username": "stargazer42",
+      "email": "stargazer42@zone.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 3,
+      "username": "cosmic_artist",
+      "email": "cosmic_artist@zone.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 4,
+      "username": "mars_or_bust",
+      "email": "mars_or_bust@zone.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 5,
+      "username": "nexus_fan",
+      "email": "nexus_fan@zone.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 6,
+      "username": "space_newbie",
+      "email": "space_newbie@zone.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 7,
+      "username": "quantum_astro",
+      "email": "quantum_astro@zone.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 8,
+      "username": "event_horizon",
+      "email": "quantum_astro@zone.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 9,
+      "username": "galactic_photog",
+      "email": "galactic_photog@zone.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 10,
+      "username": "Globe_Reject420",
+      "email": "globereject420@zone.com",
+      "password": "$2a$10$xbzZihpQRlhIdK.UUvqNEOeGOGwuOsJC8O8nyNoMwspUY2IqIWRAm",
+      "createdAt": "2023-01-15T10:00:00Z"
+    }
+  ],
+  "categories": [
+    {"ID": 1, "name": "Astronomy", "description": "Star gazing and cosmic phenomena"},
+    {"ID": 2, "name": "Creative Cosmos", "description": "Space-inspired art and media"},
+    {"ID": 3, "name": "Exploration", "description": "Space missions and discoveries"},
+    {"ID": 4, "name": "Forum Feedback", "description": "Useful feedback about our Forum"},
+    {"ID": 5, "name": "New Horizons", "description": "Cutting edge discoveries"},
+    {"ID": 6, "name": "Science", "description": "Science discussion and assistance"},
+    {"ID": 7, "name": "Stellar Events", "description": "Rare events calendar and sharing"}
+  ],
+  "posts": [
+    {
+      "ID": 1,
+      "userID": 1,
+      "title": "Best Telescopes for Beginners",
+      "content": "I'm looking to buy my first telescope to observe planets and deep-sky objects. Budget is around $300. Any recommendations from experienced astronomers?",
+      "category": "Astronomy",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 2,
+      "userID": 2,
+      "title": "My Latest Space-Inspired Digital Painting",
+      "content": "Just finished this nebula scene inspired by JWST images. Would love feedback from the community! [image attached]",
+      "category": "Creative Cosmos",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 3,
+      "userID": 3,
+      "title": "Artemis II Crew Announcement Discussion",
+      "content": "What are your thoughts on NASA's selected crew for the first crewed Artemis mission around the Moon? Exciting times ahead!",
+      "category": "Exploration",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 4,
+      "userID": 4,
+      "title": "Feature Request: Dark Mode for Nexus",
+      "content": "Would anyone else love to see a proper dark mode for night-time browsing? My astronomer eyes would appreciate it!",
+      "category": "Forum Feedback",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 5,
+      "userID": 5,
+      "title": "ELI5: Why do planets orbit in the same plane?",
+      "content": "I noticed all planets seem to orbit the Sun in a flat disk rather than in all directions. Why is this?",
+      "category": "New Horizons",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 6,
+      "userID": 6,
+      "title": "New Study on Quantum Effects in Neutron Stars",
+      "content": "Just read this fascinating paper about how quantum phenomena might explain some pulsar behaviors. Anyone want to discuss the implications?",
+      "category": "Science",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 7,
+      "userID": 7,
+      "title": "Upcoming Perseid Meteor Shower Viewing Party",
+      "content": "Organizing a public viewing event in Colorado for the peak night. Anyone interested in helping or attending?",
+      "category": "Stellar Events",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 8,
+      "userID": 8,
+      "title": "My First Attempt at Andromeda Galaxy Photography",
+      "content": "Took this with my new tracking mount. Not perfect but I'm proud of my first real deep space image! [image attached]",
+      "category": "Astronomy",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "ID": 9,
+      "userID": 9,
+      "title": "The Earth is FLAT!",
+      "content": "If the Earth is a globe, then why don't we fall off when we walk upside down in Australia?",
+      "category": "Astronomy",
+      "createdAt": "2023-01-15T10:00:00Z"
+    }
+  ]
+}
+

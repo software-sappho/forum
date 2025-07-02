@@ -1,0 +1,168 @@
+{{define "title"}}Terms and Conditions{{end}}
+
+{{define "mainClass"}}max-w-6xl{{end}}
+
+{{define "content"}}
+<div class="min-h-screen">
+    <!-- Hero Section -->
+    <div class="text-center pt-12 pb-4">
+        <img src="static/img/terms.png" 
+             alt="Terms Icon" 
+             style="width: 150px; height: 150px;"
+             class="mx-auto mb-4 filter invert-0 brightness-0">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Terms and Conditions</h1>
+        <p class="text-xl text-gray-550">Last updated: June 03, 2025</p>
+    </div>
+
+    <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Main Content Area -->
+            <div class="w-full">
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg shadow-lg p-8">
+                    <div class="prose prose-lg max-w-none text-black-800">
+                        <!-- Introduction Section -->
+                        <div id="introduction" class="bg-white rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('introduction-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">1. Introduction</h2>
+                                <svg id="introduction-arrow" class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="introduction-content" class="mt-6 hidden">
+                                <ul class="list-disc pl-6 text-gray-800 space-y-2">
+                                    <li>By accessing and using Nexus Forum, you agree to comply with these Terms and Conditions, our Privacy Policy, and Community Guidelines.</li>
+                                    <li>If you do not agree, please do not use our services.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- User Accounts Section -->
+                        <div id="user-accounts" class="bg-white rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('user-accounts-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">2. User Accounts</h2>
+                                <svg id="user-accounts-arrow" class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="user-accounts-content" class="mt-6 hidden">
+                                <ul class="list-disc pl-6 text-gray-800 space-y-2">
+                                    <li>You must be at least 13 years old to create an account.</li>
+                                    <li>You are responsible for maintaining the confidentiality of your login information.</li>
+                                    <li>You are liable for all activities conducted through your account.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Acceptable Use Section -->
+                        <div id="acceptable-use" class="bg-white rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('acceptable-use-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">3. Acceptable Use</h2>
+                                <svg id="acceptable-use-arrow" class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="acceptable-use-content" class="mt-6 hidden">
+                                <ul class="list-disc pl-6 text-gray-800 space-y-2">
+                                    <li>Do not post or share content that is unlawful, abusive, hateful, or discriminatory.</li>
+                                    <li>No spam, self-promotion, or advertisements without prior approval.</li>
+                                    <li>Respect other members and engage in constructive dialogue.</li>
+                                    <li>Follow all moderator directives and forum rules.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Content Ownership Section -->
+                        <div id="content-ownership" class="bg-white rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('content-ownership-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">4. Content Ownership</h2>
+                                <svg id="content-ownership-arrow" class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="content-ownership-content" class="mt-6 hidden">
+                                <ul class="list-disc pl-6 text-gray-800 space-y-2">
+                                    <li>You retain ownership of the content you post.</li>
+                                    <li>By posting on Nexus Forum, you grant us a non-exclusive, royalty-free license to use, display, and distribute your content for community and promotional purposes.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Termination Section -->
+                        <div id="termination" class="bg-white rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('termination-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">5. Account Suspension & Termination</h2>
+                                <svg id="termination-arrow" class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="termination-content" class="mt-6 hidden">
+                                <ul class="list-disc pl-6 text-gray-800 space-y-2">
+                                    <li>We reserve the right to suspend or terminate accounts that violate our Terms or Community Guidelines without prior notice.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Limitation of Liability Section -->
+                        <div id="liability" class="bg-white rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('liability-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">6. Limitation of Liability</h2>
+                                <svg id="liability-arrow" class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="liability-content" class="mt-6 hidden">
+                                <ul class="list-disc pl-6 text-gray-800 space-y-2">
+                                    <li>Nexus Forum is provided "as is" without warranties of any kind.</li>
+                                    <li>We are not liable for any damages resulting from your use of the platform, including lost data, service interruptions, or unauthorized access.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Changes to Terms Section -->
+                        <div id="changes" class="bg-white rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('changes-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">7. Changes to These Terms</h2>
+                                <svg id="changes-arrow" class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="changes-content" class="mt-6 hidden">
+                                <ul class="list-disc pl-6 text-gray-800 space-y-2">
+                                    <li>We may update these Terms at any time.</li>
+                                    <li>Continued use of the forum after changes take effect constitutes acceptance of the new Terms.</li>
+                                    <li>We recommend reviewing this page periodically.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Contact Section -->
+                        <div id="contact" class="bg-white rounded-lg p-6 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('contact-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">8. Contact Us</h2>
+                                <svg id="contact-arrow" class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="contact-content" class="mt-6 hidden">
+                                <ul class="list-disc pl-6 text-gray-800 space-y-2">
+                                    <li>If you have questions or concerns about these Terms, please contact us at <a href="/contact" class="text-blue-600 hover:underline transition-colors duration-200">http://localhost:8080/contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/accordion.js"></script>
+{{end}}

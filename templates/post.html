@@ -1,0 +1,182 @@
+{{define "title"}}{{.Post.Title}} - Nexus{{end}}
+
+{{define "content"}}
+<main class="max-w-4xl mx-auto px-4 py-6">
+  <!-- Back Button -->
+  <a href="/forum" class="inline-flex items-center mb-6 text-white transform hover:scale-105 transition">
+    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+    </svg>
+    Back
+  </a>
+
+  <!-- Main Post -->
+  <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6 mb-6 shadow-lg">
+    <!-- Category Tags -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      {{range .Post.Categories}}
+      <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2 py-1 rounded-full">
+        {{.}}
+      </span>
+      {{end}}
+    </div>
+
+    <!-- Title and Author Info -->
+    <div class="flex items-start space-x-4 mb-6">
+      <!-- Profile Picture -->
+      <div class="flex-shrink-0">
+        {{if .Post.AvatarURL}}
+        <img src="/{{.Post.AvatarURL}}" alt="{{.Post.Author}}'s profile" class="w-14 h-14 rounded-full object-cover shadow-lg backdrop-blur-sm bg-white/10 border border-white/20">
+        {{else}}
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm border border-white/20 shadow-lg flex items-center justify-center">
+          <svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+        </div>
+        {{end}}
+      </div>
+      
+      <!-- Title and Author Details -->
+      <div class="flex-1 min-w-0">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">{{.Post.Title}}</h1>
+        <div class="flex items-center space-x-2 text-sm text-gray-700">
+          <span class="font-medium text-black">{{.Post.Author}}</span>
+          <span class="text-black">•</span>
+          <span>{{.Post.TimeAgo}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post Content -->
+    <div class="mb-6">
+      <p class="text-gray-800 text-lg leading-relaxed">{{.Post.Content}}</p>
+      {{ if .Post.ImageURL.Valid }}
+      <div class="w-full mt-6 flex justify-center">
+        <img src="/{{ .Post.ImageURL.String }}" alt="Post image"
+             class="w-full max-w-2xl rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+             style="height: auto;">
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Engagement Stats -->
+    <div class="flex space-x-4 text-sm text-gray-800 mb-6">
+      <form action="/toggle-like" method="POST" class="inline-flex items-center">
+        <input type="hidden" name="post_id" value="{{.Post.ID}}">
+        <button type="submit"
+          class="flex items-center text-sm font-medium transition-all duration-200 px-2 py-1 rounded-md
+                {{if .Post.UserLiked}}text-brand-midnight bg-white/20{{else}}text-gray-800 hover:text-brand-midnight hover:bg-white/10{{end}}">
+          <img src="/static/img/like.png" alt="Like" class="w-4 h-4 mr-1 {{if .Post.UserLiked}}filter brightness-0{{end}}" />
+          Like ({{.Post.Likes}})
+        </button>
+      </form>
+      <form action="/toggle-dislike" method="POST" class="inline-flex items-center">
+        <input type="hidden" name="post_id" value="{{.Post.ID}}">
+        <button type="submit"
+          class="flex items-center text-sm font-medium transition-all duration-200 px-2 py-1 rounded-md
+                {{if .Post.UserDisliked}}text-brand-midnight bg-white/20{{else}}text-gray-800 hover:text-brand-midnight hover:bg-white/10{{end}}">
+          <img src="/static/img/like.png" alt="Dislike" class="w-4 h-4 mr-1 transform rotate-180 {{if .Post.UserDisliked}}filter brightness-0{{end}}" />
+          Dislike ({{.Post.Dislikes}})
+        </button>
+      </form>
+      <span class="inline-flex items-center px-2 py-1">
+        <img src="/static/img/comment.png" alt="Comment" class="w-4 h-4 mr-1" />
+        {{len .Comments}} Comments
+      </span>
+    </div>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6 shadow-lg">
+    <h2 class="text-2xl font-bold text-white mb-6">Comments</h2>
+
+    {{if .Comments}}
+      <div class="space-y-4">
+        {{range .Comments}}
+        <div class="bg-white/30 p-4 rounded-lg">
+          <div class="flex items-center space-x-4">
+            <!-- Profile Picture -->
+            <div class="flex-shrink-0">
+              {{if .AvatarURL}}
+              <img src="/{{.AvatarURL}}" alt="{{.Author}}'s profile" class="w-14 h-14 rounded-full object-cover shadow-lg backdrop-blur-sm bg-white/10 border border-white/20">
+              {{else}}
+              <div class="w-14 h-14 rounded-full bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm border border-white/20 shadow-lg flex items-center justify-center">
+                <svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              {{end}}
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center space-x-2 text-sm text-gray-700 mb-2">
+                <span class="font-semibold text-black">{{.Author}}</span>
+                <span class="text-gray-500">•</span>
+                <span class="text-gray-600">{{.TimeAgo}}</span>
+              </div>
+              <p class="text-gray-800 leading-relaxed mb-3">{{.Content}}</p>
+              
+              <!-- Comment Engagement Stats -->
+              <div class="flex space-x-4 text-sm text-gray-800">
+                <form action="/toggle-like" method="POST" class="inline-flex items-center">
+                  <input type="hidden" name="comment_id" value="{{.ID}}">
+                  <button type="submit"
+                    class="flex items-center text-sm font-medium transition-all duration-200 px-2 py-1 rounded-md
+                          {{if .UserLiked}}text-brand-midnight bg-white/20{{else}}text-gray-800 hover:text-brand-midnight hover:bg-white/10{{end}}">
+                    <img src="/static/img/like.png" alt="Like" class="w-4 h-4 mr-1 {{if .UserLiked}}filter brightness-0{{end}}" />
+                    Like ({{.Likes}})
+                  </button>
+                </form>
+                <form action="/toggle-dislike" method="POST" class="inline-flex items-center">
+                  <input type="hidden" name="comment_id" value="{{.ID}}">
+                  <button type="submit"
+                    class="flex items-center text-sm font-medium transition-all duration-200 px-2 py-1 rounded-md
+                          {{if .UserDisliked}}text-brand-midnight bg-white/20{{else}}text-gray-800 hover:text-brand-midnight hover:bg-white/10{{end}}">
+                    <img src="/static/img/like.png" alt="Dislike" class="w-4 h-4 mr-1 transform rotate-180 {{if .UserDisliked}}filter brightness-0{{end}}" />
+                    Dislike ({{.Dislikes}})
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{end}}
+      </div>
+    {{else}}
+      <div class="text-center py-8">
+        <p class="text-gray-600 text-lg">No comments yet. Be the first to comment!</p>
+      </div>
+    {{end}}
+
+    <!-- Comment Form -->
+    {{if .IsLoggedIn}}
+      <div class="mt-6 pt-6 border-t border-white/20">
+        <h3 class="text-xl font-semibold text-white mb-4">Leave a Comment</h3>
+        <form action="/comments" method="POST">
+          <input type="hidden" name="post_id" value="{{.Post.ID}}">
+          <textarea 
+            name="content" 
+            rows="4" 
+            required
+            class="w-full bg-white px-4 py-2 rounded-md border-gray-300 shadow-sm focus:ring-brand-midnight focus:border-brand-midnight"
+            placeholder="Write your comment here..."
+          ></textarea>
+          <button 
+            type="submit" 
+            class="mt-3 bg-brand-midnight text-white px-6 py-2 rounded-md shadow-sm text-sm font-medium transform hover:scale-105 transition"
+          >
+            Post Comment
+          </button>
+        </form>
+      </div>
+    {{else}}
+      <div class="mt-6 pt-6 border-t border-white/20 text-center">
+        <p class="text-gray-600">
+          <a href="/login" class="text-brand-midnight hover:underline font-medium">Log in</a> to post a comment.
+        </p>
+      </div>
+    {{end}}
+  </div>
+</main>
+{{end}}

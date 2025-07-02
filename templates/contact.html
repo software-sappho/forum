@@ -1,0 +1,112 @@
+{{define "title"}}Contact Us - Nexus{{end}}
+{{define "mainClass"}}flex items-center justify-center{{end}}
+
+{{define "content"}}
+<div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Contact Form -->
+        <div class="md:col-span-2 h-full">
+            <div class="bg-white rounded-lg shadow-lg p-6 h-full">
+                <h1 class="text-2xl font-bold mb-6">Contact Us</h1>
+                
+                {{if .Success}}
+                <div class="bg-brand-pink-light text-brand-midnight px-4 py-3 rounded mb-6">
+                    {{.Message}}
+                </div>
+                {{end}}
+                
+                {{if .Errors}}
+                <div class="bg-brand-pink-light border-2 border-brand-midnight text-brand-midnight px-4 py-3 rounded mb-6">
+                    <ul>
+                        {{range $field, $error := .Errors}}
+                        <li><strong>{{$field}}</strong>: {{$error}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+                {{end}}
+                
+                <form action="/contact" method="POST" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                        <input type="text" id="name" name="name" value="{{.FormData.name}}" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-midnight focus:ring focus:ring-brand-midnight focus:ring-opacity-50">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                        <input type="email" id="email" name="email" value="{{.FormData.email}}" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-midnight focus:ring focus:ring-brand-midnight focus:ring-opacity-50">
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                        <input type="text" id="subject" name="subject" value="{{.FormData.subject}}" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-midnight focus:ring focus:ring-brand-midnight focus:ring-opacity-50">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="message" name="message" rows="3" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-midnight focus:ring focus:ring-brand-midnight focus:ring-opacity-50">{{.FormData.message}}</textarea>
+                    </div>
+                    
+                    <div>
+                        <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-midnight hover:bg-brand-midnight-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-midnight transform hover:scale-105 transition">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Contact Information -->
+        <div class="md:col-span-1 h-full">
+            <div class="bg-white rounded-lg shadow p-6 h-full">
+                <h2 class="text-xl font-semibold mb-4">Contact Information</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-medium text-gray-900">Office Location</h3>
+                        <p class="mt-1 text-gray-600">{{.OfficeLocation}}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-medium text-gray-900">Business Hours</h3>
+                        <p class="mt-1 text-gray-600">{{.BusinessHours}}</p>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-gray-200">
+                        <h3 class="font-medium text-gray-900">Get In Touch</h3>
+                        <ul class="mt-2 space-y-2">
+                            <li class="flex items-center">
+                                <img src="/static/img/email.png" alt="Email" class="h-5 w-5 mr-2">
+                                <span class="text-gray-600">support@Nexus.com</span>
+                            </li>
+                            <li class="flex items-center">
+                                <img src="/static/img/phone.png" alt="Phone" class="h-5 w-5 mr-2">
+                                <span class="text-gray-600">+1 (555) 123-4567</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-gray-200">
+                        <h3 class="font-medium text-gray-900">Follow Us</h3>
+                        <div class="mt-2 flex space-x-4">
+                            <a href="https://twitter.com/Nexus" target="_blank" class="text-gray-400 hover:text-brand-midnight transform hover:scale-110 transition">
+                                <img src="/static/img/twitter.png" alt="Twitter" class="h-6 w-6">
+                            </a>
+                            <a href="https://facebook.com/Nexus" target="_blank" class="text-gray-400 hover:text-brand-midnight transform hover:scale-110 transition">
+                                <img src="/static/img/facebook.png" alt="Facebook" class="h-6 w-6">
+                            </a>
+                            <a href="https://instagram.com/Nexus" target="_blank" class="text-gray-400 hover:text-brand-midnight transform hover:scale-110 transition">
+                                <img src="/static/img/instagram.png" alt="Instagram" class="h-6 w-6">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

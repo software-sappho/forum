@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-black: #0F0F0F;
+    --color-brand-midnight: #451564;
+    --color-brand-pink-light: #EEC8E0;
+    --color-brand-pink-mid: #FFAFF0;
+    --color-brand-pink-dark: #F092DD;
+}
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+.gradient-bg-base {
+    filter: contrast(130%) brightness(200%);
+    background: linear-gradient(
+        to bottom left, 
+        rgb(0, 0, 0), 
+        rgba(181, 61, 255, 0.47)
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4.3' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#move-div {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    background-color: #ffffff;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Avatar sizing utilities */
+.w-8 {
+    width: 2rem;
+}
+
+.h-8 {
+    height: 2rem;
+}
+
+.w-10 {
+    width: 2.5rem;
+}
+
+.h-10 {
+    height: 2.5rem;
+}
+
+.w-12 {
+    width: 3rem;
+}
+
+.h-12 {
+    height: 3rem;
+}
+
+.w-16 {
+    width: 4rem;
+}
+
+.h-16 {
+    height: 4rem;
+}
+
+.w-32 {
+  width: 8rem;
+}

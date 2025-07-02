@@ -1,0 +1,134 @@
+{{define "title"}}Create Post - Nexus{{end}}
+{{define "mainClass"}}flex items-center justify-center{{end}}
+
+{{define "content"}}
+<div class="max-w-2xl mx-auto w-full">
+    <div class="bg-white/20 rounded-lg shadow-lg p-6 w-full">
+        <h1 class="text-2xl font-bold mb-6 text-center text-black">Create New Post</h1>
+        
+        <!-- Error Messages -->
+        {{if .Errors}}
+        <div class="mb-4 p-4 bg-white backdrop-blur-sm rounded-lg">
+            <div class="flex items-center justify-center space-x-6">
+                <svg class="w-8 h-8 text-brand-midnight flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                    {{range $field, $error := .Errors}}
+                    <p class="text-sm text-brand-midnight font-medium">{{$error}}</p>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+        {{end}}
+        
+        <form action="/create-post" method="POST" enctype="multipart/form-data" class="space-y-4" id="create-post-form">
+            {{if .FormData.categories}}
+            <input type="hidden" id="selected-categories" value="{{.FormData.categories}}">
+            {{end}}
+            <div>
+                <label for="title" class="block text-sm font-medium text-black">Title</label>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    required
+                    placeholder="Enter your post title"
+                    value="{{.FormData.title}}"
+                    class="bg-white mt-1 block w-full px-4 py-2 rounded-md border-gray-300 shadow-sm focus:ring-brand-midnight focus:border-brand-midnight"
+                />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-black mb-2">Categories (select one or more)</label>
+                <div class="bg-white rounded-md border border-gray-300 p-4 max-h-64 overflow-y-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {{range .Categories}}
+                        <label class="flex items-center space-x-2 py-1 hover:bg-gray-50 rounded px-2 cursor-pointer">
+                            <input 
+                                type="checkbox" 
+                                name="categories" 
+                                value="{{.Name}}"
+                                class="h-4 w-4 text-brand-midnight focus:ring-brand-midnight border-gray-300 rounded flex-shrink-0"
+                            />
+                            <div class="min-w-0 flex-1">
+                                <span class="text-sm font-medium text-gray-900 block truncate">{{.Name}}</span>
+                                {{if .Description}}
+                                <span class="text-xs text-gray-500 block truncate">{{.Description}}</span>
+                                {{end}}
+                            </div>
+                        </label>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label for="content" class="block text-sm font-medium text-black">Content</label>
+                <textarea
+                    id="content"
+                    name="content" 
+                    required
+                    rows="8"
+                    placeholder="Write your post content..."
+                    class="bg-white mt-1 block w-full px-4 py-2 rounded-md border-gray-300 shadow-sm focus:ring-brand-midnight focus:border-brand-midnight"
+                >{{.FormData.content}}</textarea>
+            </div>
+
+            <div>
+                <label for="image" class="block text-sm font-medium text-black">Upload Image (optional)</label>
+                <input 
+                    type="file" 
+                    id="image" 
+                    name="image"
+                    accept="image/*"
+                    class="bg-white mt-1 block w-full px-4 py-2 rounded-md border-gray-300 shadow-sm focus:ring-brand-midnight focus:border-brand-midnight"
+                />
+                <p id="image-error" class="text-red-600 text-sm mt-2 hidden"></p>
+            </div>
+
+            <div class="flex space-x-4 pt-2">
+                <button 
+                    type="submit"
+                    class="flex-1 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-midnight transform hover:scale-105 transition"
+                >
+                    Create Post
+                </button>
+                <a 
+                    href="/forum"
+                    class="flex-1 flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-black bg-white hover:bg-gray-50 transform hover:scale-105 transition"
+                >
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/static/js/img_size.js"></script>
+<script>
+// Form validation to ensure at least one category is selected
+document.getElementById('create-post-form').addEventListener('submit', function(e) {
+    const checkedCategories = document.querySelectorAll('input[name="categories"]:checked');
+    if (checkedCategories.length === 0) {
+        e.preventDefault();
+        alert('Please select at least one category for your post.');
+        return false;
+    }
+});
+
+// Restore selected categories if form was reloaded with errors
+document.addEventListener('DOMContentLoaded', function() {
+    const selectedCategoriesInput = document.getElementById('selected-categories');
+    if (selectedCategoriesInput) {
+        const selectedCategories = selectedCategoriesInput.value.split(',');
+        selectedCategories.forEach(function(category) {
+            const checkbox = document.querySelector('input[name="categories"][value="' + category.trim() + '"]');
+            if (checkbox) {
+                checkbox.checked = true;
+            }
+        });
+    }
+});
+</script>
+{{end}} 

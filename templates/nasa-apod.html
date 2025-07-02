@@ -1,0 +1,58 @@
+{{define "title"}}Astronomy Picture of the Day - Nexus{{end}}
+
+{{define "content"}}
+<div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Back Button -->
+    <a href="/forum" class="inline-flex items-center mb-6 text-white transform hover:scale-105 transition">
+        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Back
+    </a>
+
+    <div class="bg-white/20 backdrop-blur-sm rounded-lg shadow-lg p-6">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold mb-2 text-white">Astronomy Picture of the Day</h1>
+            <p id="apodDate" class="text-xl text-white"></p>
+        </div>
+
+        <div id="apodContent" class="space-y-6">
+            <!-- Loading State -->
+            <div id="loadingState" class="flex flex-col items-center justify-center py-12">
+                <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
+                <p class="mt-4 text-white">Loading today's astronomy picture...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="hidden bg-red-100 border-l-4 border-red-500 p-4 mb-4">
+                <p class="text-red-700 text-center">Sorry, we couldn't load today's astronomy picture. Please try again later.</p>
+            </div>
+
+            <!-- Content State -->
+            <div id="contentState" class="hidden flex flex-col items-center">
+                <!-- Title -->
+                <h2 id="apodTitle" class="text-2xl font-bold text-white mb-4 text-center"></h2>
+
+                <!-- Media Container -->
+                <div class="relative w-full h-[600px] rounded-lg overflow-hidden bg-black mb-6">
+                    <!-- Image -->
+                    <img id="apodImage" class="absolute inset-0 w-full h-full object-cover hidden" alt="Astronomy Picture of the Day">
+
+                    <!-- Video -->
+                    <div id="apodVideo" class="absolute inset-0 w-full h-full hidden">
+                        <!-- Video iframe will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="prose max-w-none w-full">
+                    <p id="apodExplanation" class="text-black leading-relaxed text-center"></p>
+                </div>
+
+                <!-- Copyright -->
+                <p id="apodCopyright" class="mt-4 text-sm text-white italic text-center"></p>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}} 

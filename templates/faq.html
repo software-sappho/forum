@@ -1,0 +1,96 @@
+{{define "title"}}FAQ{{end}}
+
+{{define "mainClass"}}max-w-6xl{{end}}
+
+{{define "content"}}
+<div class="min-h-screen">
+    <!-- Hero Section -->
+    <div class="text-center pt-12 pb-4">
+        <img src="static/img/faq.png" 
+             alt="FAQ Icon" 
+             style="width: 150px; height: 150px;"
+             class="mx-auto mb-4 filter invert-0 brightness-0">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h1>
+        <p class="text-xl text-gray-550">Last updated: June 03, 2025</p>
+    </div>
+
+    <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Main Content Area -->
+            <div class="w-full">
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg shadow-lg p-8">
+                    <div class="prose prose-lg max-w-none text-black-800">
+                        <!-- General Questions Section -->
+                        <div id="general" class="bg-white rounded-lg p-6 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('general-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">General Questions</h2>
+                                <svg id="general-arrow" class="w-6 h-6 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="general-content" class="mt-6 hidden">
+                                <div class="mb-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">What is Nexus Forum?</h3>
+                                    <p class="mt-2 text-base leading-relaxed">Nexus Forum is a community platform for space enthusiasts to discuss astronomy, space exploration, and related topics.</p>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">How do I create an account?</h3>
+                                    <p class="mt-2 text-base leading-relaxed">Click on the "Sign Up" button in the navigation menu and follow the registration process.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account Management Section -->
+                        <div id="account" class="bg-white rounded-lg p-6 mt-8 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('account-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">Account Management</h2>
+                                <svg id="account-arrow" class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="account-content" class="mt-6 hidden">
+                                <div class="mb-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">How do I reset my password?</h3>
+                                    <p class="mt-2 text-base leading-relaxed">Go to the login page and click on "Forgot Password" to receive reset instructions via email.</p>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">Can I delete my account?</h3>
+                                    <p class="mt-2 text-base leading-relaxed">Yes, you can request account deletion by contacting our support team.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Community Guidelines Section -->
+                        <div id="community" class="bg-white rounded-lg p-6 mt-8 max-w-2xl mx-auto">
+                            <button onclick="toggleAccordion('community-content')" class="w-full flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-gray-900">Community Guidelines</h2>
+                                <svg id="community-arrow" class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <div id="community-content" class="mt-6 hidden">
+                                <div class="mb-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">What are the posting rules?</h3>
+                                    <p class="mt-2 text-base leading-relaxed">We encourage respectful discussions. Any form of harassment, spam, or inappropriate content will be removed.</p>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-xl font-semibold text-gray-900">How do I report inappropriate content?</h3>
+                                    <p class="mt-2 text-base leading-relaxed">Each post has a "Report" button that you can use to flag content for moderator review.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/accordion.js"></script>
+{{end}}

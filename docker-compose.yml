@@ -1,0 +1,18 @@
+services:
+  forum:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - NASA_API_KEY=${NASA_API_KEY}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
+      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}
+    volumes:
+      - ./uploads:/app/uploads
+      - ./forum.db:/app/forum.db
+      - ./sql:/app/sql                    # Make sure SQL files accessible
+      - ./populate:/app/populate          # Make sure seed data accessible
+
+    restart: unless-stopped 

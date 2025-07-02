@@ -1,0 +1,53 @@
+{{define "title"}}Liked Content - Nexus{{end}}
+
+{{define "content"}}
+<main class="max-w-4xl mx-auto px-4 py-6">
+  <a href="/profile" class="inline-flex items-center mb-6 text-white transform hover:scale-105 transition">
+    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+    </svg>
+    Back
+  </a>
+
+  <div class="bg-white/20 backdrop-blur-sm rounded-lg shadow-lg p-8">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-white mb-2">Liked Content</h1>
+      <p class="text-black font-medium">All posts and comments liked by {{.User.Username}}</p>
+    </div>
+
+    <div class="mb-10">
+      <h2 class="text-xl font-semibold text-white mb-4">Liked Posts</h2>
+      {{if .LikedPosts}}
+        <ul class="space-y-4">
+          {{range .LikedPosts}}
+            <li class="bg-white/30 rounded-lg p-4 shadow">
+              <a href="/posts/{{.ID}}" class="text-lg font-bold text-brand-midnight hover:underline">{{.Title}}</a>
+              <p class="text-black text-sm mt-1">{{.Content | html}}</p>
+              <span class="text-xs text-gray-700">Category: {{.Category}} | {{.CreatedAt.Format "Jan 2, 2006"}}</span>
+            </li>
+          {{end}}
+        </ul>
+      {{else}}
+        <p class="text-black/80">No liked posts yet.</p>
+      {{end}}
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-white mb-4">Liked Comments</h2>
+      {{if .LikedComments}}
+        <ul class="space-y-4">
+          {{range .LikedComments}}
+            <li class="bg-white/30 rounded-lg p-4 shadow">
+              <a href="/posts/{{.PostID}}#comment-{{.ID}}" class="text-sm font-bold text-brand-midnight hover:underline">View Comment</a>
+              <p class="text-black text-sm mt-1">{{.Content | html}}</p>
+              <span class="text-xs text-gray-700">On Post ID: {{.PostID}} | {{.CreatedAt.Format "Jan 2, 2006"}}</span>
+            </li>
+          {{end}}
+        </ul>
+      {{else}}
+        <p class="text-black/80">No liked comments yet.</p>
+      {{end}}
+    </div>
+  </div>
+</main>
+{{end}} 
